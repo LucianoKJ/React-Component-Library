@@ -29,6 +29,18 @@
   --button-fg: #171717;
 }
 
+/* Muted "gray" palette: a low-glare middle ground between light and dark.
+   A soft off-white surface with near-black text, not a literal 50% gray, so
+   text/border/input/button contrast all clear WCAG AA. */
+[data-theme="gray"] {
+  --background: #d8d8d8;
+  --foreground: #2a2a2a;
+  --input-bg: #e8e8e8;
+  --border: #9a9a9a;
+  --button-bg: #c2c2c2;
+  --button-fg: #2a2a2a;
+}
+
 [data-theme="dark"] {
   --background: #0a0a0a;
   --foreground: #ededed;

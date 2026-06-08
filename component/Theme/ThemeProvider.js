@@ -6,10 +6,13 @@ const ThemeContext = createContext(null)
 
 const STORAGE_KEY = "theme"
 
+// Ordered by descending lightness so each toggle reads as "one notch darker".
+const THEMES = ["light", "gray", "dark"]
+
 function getStoredTheme() {
     try {
         const stored = window.localStorage.getItem(STORAGE_KEY)
-        if (stored === "light" || stored === "dark") return stored
+        if (THEMES.includes(stored)) return stored
     } catch {
         // localStorage unavailable (private mode / disabled) - fall through
     }
@@ -44,7 +47,8 @@ export function ThemeProvider({ children }) {
         }
     }, [theme, mounted])
 
-    const toggleTheme = () => setTheme(t => (t === "dark" ? "light" : "dark"))
+    const toggleTheme = () =>
+        setTheme(t => THEMES[(THEMES.indexOf(t) + 1) % THEMES.length])
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
