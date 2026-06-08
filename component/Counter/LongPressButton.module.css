@@ -3,8 +3,12 @@
     height: 48px;
     font-size: 32px;
     cursor: pointer;
+    background: var(--button-bg);
+    color: var(--button-fg);
+    border: 1px solid var(--border);
 }
 
 .long-press-btn:disabled {
     cursor: not-allowed;
+    opacity: 0.5;
 }
